@@ -1,13 +1,13 @@
 import Header from "./Header"
-import Content from "./Content"
+import Home from "./Home"
 import Paginator from "./Paginator"
-import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-     <Header/>
-    <Content/>
+    <Header/>
+    <Home/>
     <Paginator/>
       </div>
   );
