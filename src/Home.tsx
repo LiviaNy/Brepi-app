@@ -7,24 +7,29 @@ export interface HomeProps {
 const Home: React.FC<HomeProps> =() => {
 
 useEffect(() => {
-    fetch("https://api.punkapi.com/v2/beers?page=2&per_page=6")
+    fetch("https://api.punkapi.com/v2/beers?page=3&per_page=6")
     .then(res => res.json())
     .then(data => {
         const beerArray:any = []
         const beerNames:any=[]
+        const beerData:any =[]
         for(let i:number = 0; i < data.length; i++) {
             beerArray.push(data[i].image_url)
             beerNames.push(data[i].name)
+            beerData.push(data[i].description)
         }
-        console.log(beerArray)
+        
         setBeers(beerArray)
         setBeerNames(beerNames)
+        setBeerData(beerData)
     })
 },[]) 
 
     const [beers, setBeers] = useState([])
     const [beerNames, setBeerNames] = useState([])
+    const [beerData, setBeerData] = useState([])
 const handleClick = () => {
+
     console.log("Clicked")
 }    
 return ( 
